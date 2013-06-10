@@ -10,6 +10,7 @@ puts animal_by_sound[ARGV[0]]
 
 # I wish it read all the sounds from a file.
 
-
-
-
+# handle = File.open(<filename>, 'r')
+# handle.each do
+#    print the sound
+# end
