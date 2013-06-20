@@ -14,4 +14,5 @@ puts animal_by_sound[ARGV[0]]
 puts "The animal that says <the word that's been input> is a <the animal name>."
 puts "The animal that says", a_variable_goes_here, "is a ", another_variable_goes_here
 
+# Or we can use interpolation
 

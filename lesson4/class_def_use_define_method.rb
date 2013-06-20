@@ -5,13 +5,11 @@ class Dog
 
     end
 
-    def introduce_yourself
-
+    define_method "introduce_yourself" do 
         puts "Bark! Woof, woof \"#{@name}\". Bark yap."
-
     end
 
 end
 
-rover = Dog.new("Rover")
+rover = Dog.new("Roverx")
 rover.introduce_yourself
