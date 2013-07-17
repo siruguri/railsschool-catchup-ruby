@@ -3,7 +3,8 @@ require 'net/http'
 
 uri_string = ARGV[0]
 db = SQLite3::Database.new(ARGV[1])
-r=Regexp.new(/[0-9][bB][rRaA][^0-9a-z]/)
+
+r=Regexp.new("<title>.*</title>")
 
 url = URI.parse(uri_string)
 

@@ -1,3 +1,5 @@
+word = "bark"
+
 class Dog
   def initialize(name)
     
@@ -5,16 +7,14 @@ class Dog
 
   end
 
-  define_method("introduce_yourself") do 
-    puts "Bark! Woof, woof \"#{@name}\". Bark yap."
+  def introduce_yourself
+    yield @name
   end
 end
 
 rover = Dog.new("Rover")
-rover.introduce_yourself
-
 stewie = Dog.new("Stewie")
 
 kennel = [rover, stewie]
 
-kennel.each { |poochie| poochie.introduce_yourself }
+kennel.each { |dog| dog.introduce_yourself { |n| puts "My name is \"#{n}\". #{word}!" }}
