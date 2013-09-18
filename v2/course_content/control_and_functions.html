@@ -1,0 +1,69 @@
+<ul>
+<li>
+<a href="#toc_0">Putting Together Code</a>
+</li>
+<li>
+<a href="#toc_1">Execution Of Code</a>
+<ul>
+<li>
+<a href="#toc_2">Interpretation In Ruby</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_3">Evaluating Statements</a>
+</li>
+</ul>
+<p><link href="markdown.css" rel="stylesheet"></link></p>
+
+<h1>Putting Together Code</h1>
+
+<p>In programming, bits of code are usually put together so that it&rsquo;s
+easy to repeatedly use them. The most typical format in which this is
+done is by creating <em>functions</em>. A <em>function</em> has a name (just like
+variables do) and will have:</p>
+
+<ul>
+<li>Zero or more arguments (very much like how your Ruby program can take in arguments from the command line)</li>
+<li>A single return value</li>
+</ul>
+
+<p>In Ruby, functions are created or defined using the <code>def</code> keyword:</p>
+<div class=mycode>
+def&nbsp;say_hello(name)<br/>
+&nbsp;&nbsp;puts&nbsp;"Hello,&nbsp;#{name}"<br/>
+end
+</div>
+
+<h1>Execution Of Code</h1>
+
+<p>Ruby is an <em>interpreted</em> language. This is typically used to mean that
+will be executed at the same time that it is read; in other words, if
+a part of the program is never read, it will never generate errors. In
+contrast, in a <em>compiled</em> language the entire program is first read
+and then executed - this way, certain types of errors in the program
+can be detected before it&rsquo;s ever executed. For example, in a compiled
+language, you cannot use a variable on the right side of an <code>=</code> sign
+unless it has already been defined. Some interpreted languages will allow you to do so, if the code that has the undefined variable is never actually read during execution.</p>
+
+<h2>Interpretation In Ruby</h2>
+
+<p>Ruby is somewhat stricter than other interpreted languages, like Python and Perl:</p>
+
+<ul>
+<li><p>Python and Perl won&rsquo;t look at any code until it actually has to be
+run. If you write an <code>if</code> condition and the condition you&rsquo;re
+checking for is false, then anything inside the <code>if</code> block can have
+undefined variables, and it won&rsquo;t matter to Python and Perl
+interpreters.</p></li>
+<li><p>Perl, by default, doesn&rsquo;t even require that variables be defined
+when they are substituted. If it encounters an undefined variable,
+it treats it like an empty string for most purposes. You have to run
+Perl in &ldquo;strict mode&rdquo; to enforce it to not allow undefined variables to be used in code.</p></li>
+</ul>
+
+<h1>Evaluating Statements</h1>
+
+<p>Ruby will evaluate each line of code - called a <em>statement</em> - as it
+goes along and will compute a return value for it. Every statement has
+to have a return value, even if it&rsquo;s just the <code>nil</code> value.</p>
