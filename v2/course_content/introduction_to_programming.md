@@ -12,14 +12,12 @@ like Excel say, that&apos;s even better. It'll help you understand some of
 the basic concepts and words, like &ldquo;data&rdquo; and &ldquo;printing to screen&rdquo;
 quicker if you have this background.
 
-*[What if someone doesn&apos;t have this background either?]*
-
 # What is Programming?  
 
 At its heart, all programming involves two concepts - _data_ and
 _control_. Data is just that - pieces of information that are used by
 the program. For example your web browser knows the URL of the webpage
-it needs to retrieve - the URL is a piece of “data.”
+it needs to retrieve - the URL is a piece of "data."
 
 _Control_ is a fancy word, and it means everything that the program
 actually does. It&apos;s the part that we usually associate with
@@ -46,19 +44,19 @@ another, you can select a starting cell and use a drag-and-drop motion
 to copy it.
 
 A command line interface takes input through the command line, which
-typically has a &ldquo;prompt&rdquo; &emdash; when the prompt is displayed, it means that
+typically has a "prompt" -- when the prompt is displayed, it means that
 the interface is ready to accept input.
 
 The interface sends output to the screen, also referred to as
-“standard out” or &ldquo;STDOUT.&rdquo; Correspondingly, the input at the prompt
-is referred to as &ldquo;standard in&rdquo; or &ldquo;STDIN&rdquo;.
+"standard out" or "STDOUT." Correspondingly, the input at the prompt
+is referred to as "standard in" or "STDIN".
 
 Programs written to run at command line interfaces don&apos;t have to take
 all their input from the interface; they can also take inputs from
 files.
 
 The command line interface that most computers use is typically called
-a &ldquo;shell.&rdquo; Users of Linux are familiar with shells - typically, that&apos;s
+a "shell." Users of Linux are familiar with shells - typically, that&apos;s
 the default interface intef through which they interact with their
 computers. The Windows shell is usually invoked by entering “cmd” in
 the Start Menu - it&apos;s sometimes referred to as the Command Prompt. Mac

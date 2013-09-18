@@ -8,11 +8,26 @@ variables do) and will have:
 * Zero or more arguments (very much like how your Ruby program can take in arguments from the command line)
 * A single return value
 
-In Ruby, functions are created or defined using the `def` keyword:
+In Ruby, functions are called _methods_ and are created or defined using the `def` keyword:
 
     def say_hello(name)
       puts "Hello, #{name}"
     end
+
+# Gems, Beautiful Gems
+
+Most languages will provide collections of commonly-used methods -
+code to read files, for example, or to do trig calculations. These collections of methods are called a variety of names - libraries, modules, plugins, and so on. 
+
+Ruby calls these collections of methods, _gems_. Gems usually contain
+more than just methods but we'll look into that later.
+
+There is a set of methods that come "out-of-the-box": manipulating
+arrays and hashes, reading files and directories, reading
+[regular](http://net.tutsplus.com/tutorials/javascript-ajax/you-dont-know-anything-about-regular-expressions/)
+[expressions](http://www.grymoire.com/Unix/Regular.html), generating
+random numbers, managing processes and threads, and doing math, among
+other things.
 
 # Execution Of Code
 
