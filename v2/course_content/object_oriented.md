@@ -62,6 +62,7 @@ There are some questions which come to mind immediately, that you should think a
 
 * If all classes have a parent, then doesn't that create an infinite chain of ancestry? How do you handle that?
 * Can a class have more than one parent, as things do in real-life? For example, the object representing Mickey Mouse is of the type Fictional Animal. It could have two parents (among others): Animals and Fictional Characters. How does that work?
+* Can an object have properties that it defines for itself, and that don't belong to its class?
 
 # OO Programming in Ruby
 
@@ -99,5 +100,18 @@ functions that help you investigate OO concepts.
 
 Arrays and hashes are classes, that come pre-defined for you. But they
 behave the same as any other class, even one that you might create on
-your own. They have a "class name" and you can create new Arrays and Hashes the same way you'd create a new object of a user-defined class.
+your own. They have a "class name" and you can create new Arrays and
+Hashes the same way you'd create a new object of a user-defined class.
+
+This means that an array is an object of the class `Array` and like
+all other classes, will have properties defined for it, just as we
+defined properties for our class `Business` in code snippet **#4**.
+
+Most importantly, you can expect that the `new` method will always be
+available for any class, allowing you to create a new object instance
+of the given type:
+
+        # These two lines of code do the same thing
+        arr1=[1,2]
+        arr2=Array.new; arr2[0]=1; arr2[1]=2
 
