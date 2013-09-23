@@ -12,15 +12,18 @@ attached to, or owned by.
 
 ## You've Got A Type
 
-The other main idea in OO is that any piece of data has a type, which in OO programming is usually called the object's _class_.
+The other main idea in OO is that any piece of data has a type, which
+in OO programming is usually called the object's _class_.
 
 Each class has a set of properties that is unique to itself. For example,
 all numbers have the property that they have a sign, negative or
 positive. 
 
 OO languages allow programmers to write their own types. You might
-write a type called Animal, for example: all animals might have a
-property called `number_of_legs`, say.
+write a type called Animal, for example. All animals might have a
+property called `number_of_legs`, say. Or a type called Person, and all persons (people) will have a property called `name`. 
+
+The specific piece of data that is being manipulated in a program, or during _control flow_, is 
 
 It's important to distinguish between the properties of an object, and
 the _values_ of each property. All objects of the type Human Being
@@ -68,4 +71,3 @@ Ruby offers a number of "out-of-the-box" functions that help you investigate the
         puts "The ancestors of the String class are #{String.ancestors}"
         # Output -> [String, Comparable, Object, Kernel, BasicObject]
 
-And it ends.

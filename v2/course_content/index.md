@@ -7,5 +7,6 @@ There are 3 courses:
 * [An Introduction To Programming](introduction_to_programming.html)
 * [Data And Variables](data_and_variables.html)
 * [Control and Function](control_and_functions.html)
+* [Object Oriented Programming in Ruby](object_oriented.html)
 
 Have fun!

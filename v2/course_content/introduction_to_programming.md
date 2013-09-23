@@ -20,12 +20,17 @@ the program. For example your web browser knows the URL of the webpage
 it needs to retrieve - the URL is a piece of "data."
 
 _Control_ is a fancy word, and it means everything that the program
-actually does. It&apos;s the part that we usually associate with
+actually does. It's the part that we usually associate with
 programming - taking inputs, returning outputs, printing to the
-screen, fetching webpages, connecting to a database and so on.
+screen, fetching webpages, connecting to a database and so on. 
+
+Applications consist of a set of instructions that manage all the
+aspects of your program's "control." The way in which an application
+progresses through its set of instructions is referred to as _control
+flow_.
 
 All programming languages offer a vocabulary in which programmers
-specify these two aspects - data and control. That&apos;s why,
+specify these two aspects - data and control flow. That's why,
 unsurprisingly, programming is done in a language - because it
 consists of a specific vocabulary of words, that are arranged
 according to certain rules, just as &ldquo;real&rdquo; languages, that humans
