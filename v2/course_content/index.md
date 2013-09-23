@@ -8,5 +8,6 @@ There are 3 courses:
 * [Data And Variables](data_and_variables.html)
 * [Control and Function](control_and_functions.html)
 * [Object Oriented Programming in Ruby](object_oriented.html)
+* [What's Next?](whats_in_level2.html)
 
 Have fun!

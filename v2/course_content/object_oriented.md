@@ -13,22 +13,28 @@ attached to, or owned by.
 ## You've Got A Type
 
 The other main idea in OO is that any piece of data has a type, which
-in OO programming is usually called the object's _class_.
+in OO programming is usually called the _class_ of that piece of
+data.
 
-Each class has a set of properties that is unique to itself. For example,
-all numbers have the property that they have a sign, negative or
-positive. 
+The specific piece of data that is being manipulated in a program -
+during _control flow_, that is - is called an _object_. An object is
+said to _belong_ to the class that is its type.
+
+Each class has a set of properties that is unique to itself. For
+example, all numbers have the property that they have a sign, negative
+or positive.
 
 OO languages allow programmers to write their own types. You might
 write a type called Animal, for example. All animals might have a
-property called `number_of_legs`, say. Or a type called Person, and all persons (people) will have a property called `name`. 
+property called `number_of_legs`, say. Or a type called Person, and
+all persons (people) will have a property called `name`.
 
-The specific piece of data that is being manipulated in a program, or during _control flow_, is 
-
-It's important to distinguish between the properties of an object, and
-the _values_ of each property. All objects of the type Human Being
-have the property _name_, but the value of that property is specific to
-each object (each person, in this case.) 
+It's important to distinguish between the properties of a class, and
+the _values_ of each property that a specific object has. All objects
+of the type Human Being have the property _name_, so we say that the
+**class** `Human Being` has the property `name`, but the value of that
+property is specific to each object that belongs to that class (each
+person, in this case.)
 
 Specificity doesn't mean uniqueness. Even if my name happens to be
 written the same way as yours, I can still change my name and yours
@@ -59,7 +65,27 @@ There are some questions which come to mind immediately, that you should think a
 
 # OO Programming in Ruby
 
-Ruby offers a number of "out-of-the-box" functions that help you investigate these concepts.
+## Defining and Creating Classes
+
+In the code attached to this lesson, we look at how to define a class
+of our own, and create objects that belong to this class. Look at code
+snippet **#4**.
+
+## Core Classes
+
+Now here's something about Ruby that sets it apart from most other
+languages. It comes with a lot of built-in classes, which makes Ruby
+easier to understand when using various data types.
+
+Let's take a look at a couple of data types we've seen in the previous
+lesson: `Array`s and `Hash`es:
+
+    arr1 = [1,2,3]; hash1 = {1,2,3}
+    puts arr1.class; puts hash1.class
+    # Run this in irb to see the output.
+
+What just happened there? Ruby offers a number of "out-of-the-box"
+functions that help you investigate OO concepts.
 
 * `.class`: To any object, append `.class` and you'll get its class name.
 
@@ -70,4 +96,8 @@ Ruby offers a number of "out-of-the-box" functions that help you investigate the
 
         puts "The ancestors of the String class are #{String.ancestors}"
         # Output -> [String, Comparable, Object, Kernel, BasicObject]
+
+Arrays and hashes are classes, that come pre-defined for you. But they
+behave the same as any other class, even one that you might create on
+your own. They have a "class name" and you can create new Arrays and Hashes the same way you'd create a new object of a user-defined class.
 

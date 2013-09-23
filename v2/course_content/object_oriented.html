@@ -15,6 +15,14 @@
 </li>
 <li>
 <a href="#toc_4">OO Programming in Ruby</a>
+<ul>
+<li>
+<a href="#toc_5">Defining and Creating Classes</a>
+</li>
+<li>
+<a href="#toc_6">Core Classes</a>
+</li>
+</ul>
 </li>
 </ul>
 <p><link href="markdown.css" rel="stylesheet"></link></p>
@@ -34,22 +42,28 @@ attached to, or owned by.</p>
 <h2 id="toc_2">You&rsquo;ve Got A Type</h2>
 
 <p>The other main idea in OO is that any piece of data has a type, which
-in OO programming is usually called the object&rsquo;s <em>class</em>.</p>
+in OO programming is usually called the <em>class</em> of that piece of
+data.</p>
 
-<p>Each class has a set of properties that is unique to itself. For example,
-all numbers have the property that they have a sign, negative or
-positive. </p>
+<p>The specific piece of data that is being manipulated in a program -
+during <em>control flow</em>, that is - is called an <em>object</em>. An object is
+said to <em>belong</em> to the class that is its type.</p>
+
+<p>Each class has a set of properties that is unique to itself. For
+example, all numbers have the property that they have a sign, negative
+or positive.</p>
 
 <p>OO languages allow programmers to write their own types. You might
 write a type called Animal, for example. All animals might have a
-property called <code>number_of_legs</code>, say. Or a type called Person, and all persons (people) will have a property called <code>name</code>. </p>
+property called <code>number_of_legs</code>, say. Or a type called Person, and
+all persons (people) will have a property called <code>name</code>.</p>
 
-<p>The specific piece of data that is being manipulated in a program, or during <em>control flow</em>, is </p>
-
-<p>It&rsquo;s important to distinguish between the properties of an object, and
-the <em>values</em> of each property. All objects of the type Human Being
-have the property <em>name</em>, but the value of that property is specific to
-each object (each person, in this case.) </p>
+<p>It&rsquo;s important to distinguish between the properties of a class, and
+the <em>values</em> of each property that a specific object has. All objects
+of the type Human Being have the property <em>name</em>, so we say that the
+<strong>class</strong> <code>Human Being</code> has the property <code>name</code>, but the value of that
+property is specific to each object that belongs to that class (each
+person, in this case.)</p>
 
 <p>Specificity doesn&rsquo;t mean uniqueness. Even if my name happens to be
 written the same way as yours, I can still change my name and yours
@@ -82,7 +96,28 @@ other Dogs and with no other Animals.</p>
 
 <h1 id="toc_4">OO Programming in Ruby</h1>
 
-<p>Ruby offers a number of &ldquo;out-of-the-box&rdquo; functions that help you investigate these concepts.</p>
+<h2 id="toc_5">Defining and Creating Classes</h2>
+
+<p>In the code attached to this lesson, we look at how to define a class
+of our own, and create objects that belong to this class. Look at code
+snippet <strong>#4</strong>.</p>
+
+<h2 id="toc_6">Core Classes</h2>
+
+<p>Now here&rsquo;s something about Ruby that sets it apart from most other
+languages. It comes with a lot of built-in classes, which makes Ruby
+easier to understand when using various data types.</p>
+
+<p>Let&rsquo;s take a look at a couple of data types we&rsquo;ve seen in the previous
+lesson: <code>Array</code>s and <code>Hash</code>es:</p>
+<div class=mycode>
+arr1&nbsp;=&nbsp;[1,2,3];&nbsp;hash1&nbsp;=&nbsp;{1,2,3}<br/>
+puts&nbsp;arr1.class;&nbsp;puts&nbsp;hash1.class<br/>
+<span style='color: red'>#&nbsp;Run&nbsp;this&nbsp;in&nbsp;irb&nbsp;to&nbsp;see&nbsp;the&nbsp;output.</span>
+</div>
+
+<p>What just happened there? Ruby offers a number of &ldquo;out-of-the-box&rdquo;
+functions that help you investigate OO concepts.</p>
 
 <ul>
 <li><p><code>.class</code>: To any object, append <code>.class</code> and you&rsquo;ll get its class name.</p>
@@ -96,3 +131,7 @@ puts&nbsp;"The&nbsp;ancestors&nbsp;of&nbsp;the&nbsp;String&nbsp;class&nbsp;are&n
 <span style='color: red'>#&nbsp;Output&nbsp;->&nbsp;[String,&nbsp;Comparable,&nbsp;Object,&nbsp;Kernel,&nbsp;BasicObject]</span>
 </div></li>
 </ul>
+
+<p>Arrays and hashes are classes, that come pre-defined for you. But they
+behave the same as any other class, even one that you might create on
+your own. They have a &ldquo;class name&rdquo; and you can create new Arrays and Hashes the same way you&rsquo;d create a new object of a user-defined class.</p>
