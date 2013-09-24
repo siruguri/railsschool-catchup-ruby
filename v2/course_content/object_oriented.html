@@ -92,6 +92,7 @@ other Dogs and with no other Animals.</p>
 <ul>
 <li>If all classes have a parent, then doesn&rsquo;t that create an infinite chain of ancestry? How do you handle that?</li>
 <li>Can a class have more than one parent, as things do in real-life? For example, the object representing Mickey Mouse is of the type Fictional Animal. It could have two parents (among others): Animals and Fictional Characters. How does that work?</li>
+<li>Can an object have properties that it defines for itself, and that don&rsquo;t belong to its class?</li>
 </ul>
 
 <h1 id="toc_4">OO Programming in Ruby</h1>
@@ -134,4 +135,18 @@ puts&nbsp;"The&nbsp;ancestors&nbsp;of&nbsp;the&nbsp;String&nbsp;class&nbsp;are&n
 
 <p>Arrays and hashes are classes, that come pre-defined for you. But they
 behave the same as any other class, even one that you might create on
-your own. They have a &ldquo;class name&rdquo; and you can create new Arrays and Hashes the same way you&rsquo;d create a new object of a user-defined class.</p>
+your own. They have a &ldquo;class name&rdquo; and you can create new Arrays and
+Hashes the same way you&rsquo;d create a new object of a user-defined class.</p>
+
+<p>This means that an array is an object of the class <code>Array</code> and like
+all other classes, will have properties defined for it, just as we
+defined properties for our class <code>Business</code> in code snippet <strong>#4</strong>.</p>
+
+<p>Most importantly, you can expect that the <code>new</code> method will always be
+available for any class, allowing you to create a new object instance
+of the given type:</p>
+<div class=mycode>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: red'>#&nbsp;These&nbsp;two&nbsp;lines&nbsp;of&nbsp;code&nbsp;do&nbsp;the&nbsp;same&nbsp;thing</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;arr1=[1,2]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;arr2=Array.new;&nbsp;arr2[0]=1;&nbsp;arr2[1]=2
+</div>

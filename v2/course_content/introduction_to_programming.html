@@ -20,7 +20,7 @@
 </ul>
 <p><link href="markdown.css" rel="stylesheet"></link></p>
 
-<h1>Introduction</h1>
+<h1 id="toc_0">Introduction</h1>
 
 <p>This document is meant to introduce the basic ideas of programming
 applications, using the Ruby programming language. It assumes no prior
@@ -34,7 +34,7 @@ like Excel say, that&rsquo;s even better. It&rsquo;ll help you understand some o
 the basic concepts and words, like &ldquo;data&rdquo; and &ldquo;printing to screen&rdquo;
 quicker if you have this background.</p>
 
-<h1>What is Programming?</h1>
+<h1 id="toc_1">What is Programming?</h1>
 
 <p>At its heart, all programming involves two concepts - <em>data</em> and
 <em>control</em>. Data is just that - pieces of information that are used by
@@ -44,17 +44,22 @@ it needs to retrieve - the URL is a piece of &ldquo;data.&rdquo;</p>
 <p><em>Control</em> is a fancy word, and it means everything that the program
 actually does. It&rsquo;s the part that we usually associate with
 programming - taking inputs, returning outputs, printing to the
-screen, fetching webpages, connecting to a database and so on.</p>
+screen, fetching webpages, connecting to a database and so on. </p>
+
+<p>Applications consist of a set of instructions that manage all the
+aspects of your program&rsquo;s &ldquo;control.&rdquo; The way in which an application
+progresses through its set of instructions is referred to as <em>control
+flow</em>.</p>
 
 <p>All programming languages offer a vocabulary in which programmers
-specify these two aspects - data and control. That&rsquo;s why,
+specify these two aspects - data and control flow. That&rsquo;s why,
 unsurprisingly, programming is done in a language - because it
 consists of a specific vocabulary of words, that are arranged
 according to certain rules, just as &ldquo;real&rdquo; languages, that humans
 speak to each other, have a grammar that dictates the rules by which
 we arrange words and sentences.</p>
 
-<h1>Programming in Command Line Interfaces</h1>
+<h1 id="toc_2">Programming in Command Line Interfaces</h1>
 
 <p>Command Line Interfaces are ways of communicating with programs via
 text. The alternative would be to use an interface that allows you to
@@ -85,14 +90,14 @@ the Start Menu - it&rsquo;s sometimes referred to as the Command Prompt. Mac
 OSX users typically use an application called Terminal - a better
 alternative to Terminal is iTerm.</p>
 
-<h1>Programming with Interpreters</h1>
+<h1 id="toc_3">Programming with Interpreters</h1>
 
 <p>Just as you need an interpreter to understand what someone is saying
 in a language that you don&rsquo;t understand, your computer too needs
 interpreters to understand the language a program is written in. The
 Ruby interpreter is called, simply, <code>ruby</code>.</p>
 
-<h1>The Ruby Command Line Interface</h1>
+<h1 id="toc_4">The Ruby Command Line Interface</h1>
 
 <p>To run a Ruby program, you have to use the shell of your preference
 and type in ruby at the prompt. If Ruby is installed on your computer
@@ -111,7 +116,7 @@ is the name given to the input given to any piece of code. Because
 this is an argument that is typed into a command line, it&rsquo;s referred
 to in this case as a <em>command line argument</em>.</p>
 
-<h1>The Ruby Interactive Interpreter</h1>
+<h1 id="toc_5">The Ruby Interactive Interpreter</h1>
 
 <p>You can run Ruby code via another command-line interface (or <em>CLI</em>) called <code>irb</code>. If you&rsquo;ve installed and correctly configured your Ruby installation, <code>irb</code> too should be available to your shell.</p>
 <div class=mycode>
