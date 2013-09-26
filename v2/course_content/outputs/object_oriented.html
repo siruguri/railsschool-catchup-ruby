@@ -1,0 +1,152 @@
+<ul>
+<li>
+<a href="#toc_0">Orienting Around Objects: Data First</a>
+<ul>
+<li>
+<a href="#toc_1">Methods In OO</a>
+</li>
+<li>
+<a href="#toc_2">You&#39;ve Got A Type</a>
+</li>
+<li>
+<a href="#toc_3">The Class Hierarchy</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_4">OO Programming in Ruby</a>
+<ul>
+<li>
+<a href="#toc_5">Defining and Creating Classes</a>
+</li>
+<li>
+<a href="#toc_6">Core Classes</a>
+</li>
+</ul>
+</li>
+</ul>
+<p><link href="markdown.css" rel="stylesheet"></link></p>
+
+<h1 id="toc_0">Orienting Around Objects: Data First</h1>
+
+<p>The idea of object-oriented (or &ldquo;OO&rdquo;) programming is to focus on data
+- that&rsquo;s what the &ldquo;object&rdquo; in OO refers to.</p>
+
+<h2 id="toc_1">Methods In OO</h2>
+
+<p>In OO, methods are &ldquo;attached&rdquo; to objects. The idea is that a function
+doesn&rsquo;t float around on its own, it&rsquo;s instead always &ldquo;owned&rdquo; by a
+specific piece of data, and it operates on the piece of data it&rsquo;s
+attached to, or owned by.</p>
+
+<h2 id="toc_2">You&rsquo;ve Got A Type</h2>
+
+<p>The other main idea in OO is that any piece of data has a type, which
+in OO programming is usually called the <em>class</em> of that piece of
+data.</p>
+
+<p>The specific piece of data that is being manipulated in a program -
+during <em>control flow</em>, that is - is called an <em>object</em>. An object is
+said to <em>belong</em> to the class that is its type.</p>
+
+<p>Each class has a set of properties that is unique to itself. For
+example, all numbers have the property that they have a sign, negative
+or positive.</p>
+
+<p>OO languages allow programmers to write their own types. You might
+write a type called Animal, for example. All animals might have a
+property called <code>number_of_legs</code>, say. Or a type called Person, and
+all persons (people) will have a property called <code>name</code>.</p>
+
+<p>It&rsquo;s important to distinguish between the properties of a class, and
+the <em>values</em> of each property that a specific object has. All objects
+of the type Human Being have the property <em>name</em>, so we say that the
+<strong>class</strong> <code>Human Being</code> has the property <code>name</code>, but the value of that
+property is specific to each object that belongs to that class (each
+person, in this case.)</p>
+
+<p>Specificity doesn&rsquo;t mean uniqueness. Even if my name happens to be
+written the same way as yours, I can still change my name and yours
+won&rsquo;t change with it - that&rsquo;s why my name is specific to me, even if
+it&rsquo;s not unique.</p>
+
+<h2 id="toc_3">The Class Hierarchy</h2>
+
+<p>Once you have classes, a key extension is that these classes are all
+part of a <em>class hierarchy</em>. Each class inherits from another, which
+is called its parent class. Class inheritance is a key notion in OO
+programming, because many of the capabilities you get as a programmer
+stem from understanding the various ways in which inheritance works. </p>
+
+<p>If a type <strong>T</strong> <em>inherits</em> from another type <strong>S</strong>, it means that data
+(an object) of type <strong>T</strong> will have all the properties that an object
+of type <strong>S</strong> does, plus possibly more. The type <strong>Dog</strong> nherits from
+the type <strong>Animal</strong> - this means that all Dogs are Animals, but all
+Animals are not Dogs. Dogs will have <a href="https://en.wikipedia.org/wiki/Animal#Characteristics">properties that are common to
+all Animals</a>,
+and will have properties additional to those that they share only with
+other Dogs and with no other Animals.</p>
+
+<p>There are some questions which come to mind immediately, that you should think about:</p>
+
+<ul>
+<li>If all classes have a parent, then doesn&rsquo;t that create an infinite chain of ancestry? How do you handle that?</li>
+<li>Can a class have more than one parent, as things do in real-life? For example, the object representing Mickey Mouse is of the type Fictional Animal. It could have two parents (among others): Animals and Fictional Characters. How does that work?</li>
+<li>Can an object have properties that it defines for itself, and that don&rsquo;t belong to its class?</li>
+</ul>
+
+<h1 id="toc_4">OO Programming in Ruby</h1>
+
+<h2 id="toc_5">Defining and Creating Classes</h2>
+
+<p>In the code attached to this lesson, we look at how to define a class
+of our own, and create objects that belong to this class. Look at code
+snippet <strong>#4</strong>.</p>
+
+<h2 id="toc_6">Core Classes</h2>
+
+<p>Now here&rsquo;s something about Ruby that sets it apart from most other
+languages. It comes with a lot of built-in classes, which makes Ruby
+easier to understand when using various data types.</p>
+
+<p>Let&rsquo;s take a look at a couple of data types we&rsquo;ve seen in the previous
+lesson: <code>Array</code>s and <code>Hash</code>es:</p>
+<div class=mycode>
+arr1&nbsp;=&nbsp;[1,2,3];&nbsp;hash1&nbsp;=&nbsp;{1,2,3}<br/>
+puts&nbsp;arr1.class;&nbsp;puts&nbsp;hash1.class<br/>
+<span style='color: red'>#&nbsp;Run&nbsp;this&nbsp;in&nbsp;irb&nbsp;to&nbsp;see&nbsp;the&nbsp;output.</span>
+</div>
+
+<p>What just happened there? Ruby offers a number of &ldquo;out-of-the-box&rdquo;
+functions that help you investigate OO concepts.</p>
+
+<ul>
+<li><p><code>.class</code>: To any object, append <code>.class</code> and you&rsquo;ll get its class name.</p>
+<div class=mycode>
+puts&nbsp;"this&nbsp;is&nbsp;a&nbsp;string".class<br/>
+<span style='color: red'>#&nbsp;The&nbsp;output&nbsp;is&nbsp;String</span>
+</div></li>
+<li><p><code>.ancestors</code>: To any class name, append <code>.ancestors</code> and you&rsquo;ll see the hierarchy it belongs to</p>
+<div class=mycode>
+puts&nbsp;"The&nbsp;ancestors&nbsp;of&nbsp;the&nbsp;String&nbsp;class&nbsp;are&nbsp;#{String.ancestors}"<br/>
+<span style='color: red'>#&nbsp;Output&nbsp;->&nbsp;[String,&nbsp;Comparable,&nbsp;Object,&nbsp;Kernel,&nbsp;BasicObject]</span>
+</div></li>
+</ul>
+
+<p>Arrays and hashes are classes, that come pre-defined for you. But they
+behave the same as any other class, even one that you might create on
+your own. They have a &ldquo;class name&rdquo; and you can create new Arrays and
+Hashes the same way you&rsquo;d create a new object of a user-defined class.</p>
+
+<p>This means that an array is an object of the class <code>Array</code> and like
+all other classes, will have properties defined for it, just as we
+defined properties for our class <code>Business</code> in code snippet <strong>#4</strong>.</p>
+
+<p>Most importantly, you can expect that the <code>new</code> method will always be
+available for any class, allowing you to create a new object instance
+of the given type:</p>
+<div class=mycode>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: red'>#&nbsp;These&nbsp;two&nbsp;lines&nbsp;of&nbsp;code&nbsp;do&nbsp;the&nbsp;same&nbsp;thing</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;arr1=[1,2]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;arr2=Array.new;&nbsp;arr2[0]=1;&nbsp;arr2[1]=2
+</div>

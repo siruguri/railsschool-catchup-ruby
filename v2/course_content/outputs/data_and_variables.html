@@ -1,0 +1,112 @@
+<ul>
+<li>
+<a href="#toc_0">Naming Data</a>
+<ul>
+<li>
+<a href="#toc_1">Simple Types in Ruby</a>
+</li>
+<li>
+<a href="#toc_2">Collections in Ruby</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_3">Advanced Topics</a>
+</li>
+</ul>
+<p><link href="markdown.css" rel="stylesheet"></link></p>
+
+<h1 id="toc_0">Naming Data</h1>
+
+<p>To refer to pieces of data, programming languages use <em>variables</em>, which is the word for the names we give to data.</p>
+
+<p>Most programming languages will have &ldquo;out-of-the-box&rdquo; support for a couple of simple data types, like integers and strings of text. They will also have a way to manage collections of data.</p>
+
+<h2 id="toc_1">Simple Types in Ruby</h2>
+
+<p>The simplest data types in Ruby are:</p>
+
+<ul>
+<li><p>Integers: Anything written as a number is assumed to be one, and you can perform most simple operations on them, for example, add, multiple, take the square of, and so on</p>
+<div class=mycode>
+a=3<br/>
+b=a*2<br/>
+puts&nbsp;b<br/>
+<span style='color: blue'>6</span>
+</div></li>
+<li><p>Text: Text is usually represented by enclosing it in double- or single-quotes. In Ruby, you can concatenate string together using the <code>+</code> symbol.</p>
+<div class=mycode>
+first_name="Bill"<br/>
+last_name='Clinton'<br/>
+full_name=first_name&nbsp;+&nbsp;last_name<br/>
+<span style='color: blue'>BillClinton</span>
+</div></li>
+</ul>
+
+<p>In these examples, you can see how variable values are substituted and
+assigned. The variable that is assigned to is on the left side of the
+<code>=</code> symbol. Ruby will start by reading the expression to the right of
+the <code>=</code> and &ldquo;compute&rdquo; it - that is, substitute values for the variable
+names, and perform whatever operation is requested.</p>
+
+<p>Note also that, like in most languages, variable names follow certain rules in Ruby:</p>
+
+<ul>
+<li>They can&rsquo;t contain spaces.</li>
+<li>They can&rsquo;t start with numbers.</li>
+<li>They usually only have alphanumeric characters and the underscore (&ldquo;_&rdquo;) character. (Any other characters in a variable name means that the data will behave in certain special ways so avoid using those characters until you&rsquo;ve learned what these special behaviors are.)</li>
+</ul>
+
+<h2 id="toc_2">Collections in Ruby</h2>
+
+<p>Collections of data are simple ways of keeping related pieces of
+information together, instead of having a new name for each one. For
+example, if you have a roster of names that you are reading form a
+file, then rather than have a separate variable for each name, you&rsquo;d
+prefer to refer to them by a single variable that represents the
+roster and then have them indexed by number.</p>
+
+<p>There are two types of collections that are used in most languages:</p>
+
+<ul>
+<li><p>Arrays: In Ruby, arrays are initialized using the <code>[ ]</code> symbol, like so:</p>
+<div class=mycode>
+names&nbsp;=&nbsp;['Hillary',&nbsp;'Bill',&nbsp;'Clinton']<br/>
+president1&nbsp;=&nbsp;names[1]&nbsp;+&nbsp;names[2]<br/>
+president2&nbsp;=&nbsp;names[0]&nbsp;+&nbsp;names[2]
+</div>
+
+<p>puts president1, president2
+    ==&gt; BillClinton
+    ==&gt; HillaryClinton</p></li>
+<li><p>Hashes: Hashes are collections of <em>key/value pairs</em>. Each element in the hash is indexed by its key. In Ruby, hashes are initialized using the <code>{ }</code> symbol, like so:</p>
+<div class=mycode>
+clinton_family&nbsp;=&nbsp;{'mama-bear'&nbsp;=>&nbsp;'Hillary',&nbsp;'papa-bear'&nbsp;=>&nbsp;'Bill'}<br/>
+clinton_family['baby-bear']&nbsp;=&nbsp;'Chelsea'<br/>
+clinton_family['last-name']&nbsp;=&nbsp;'Clinton'<br/>
+president1&nbsp;=&nbsp;clinton_family['papa-bear']&nbsp;+&nbsp;clinton_family['last-name']<br/>
+president2&nbsp;=&nbsp;clinton_family['mama-bear']&nbsp;+&nbsp;clinton_family['last-name']
+</div></li>
+</ul>
+
+<p>Note how the initialization uses different symbols, but both <code>Hash</code>es
+and <code>Array</code>s use the <code>[ ]</code> symbols to assign individual values.</p>
+
+<h1 id="toc_3">Advanced Topics</h1>
+
+<ul>
+<li><p><strong><code>NIL</code></strong>: There is another simple data type in Ruby which is called <code>nil</code>. It represents nothing, but that doesn&rsquo;t mean it is the same as an empty string or the number 0. It is typically used to denote that the behavior of something isn&rsquo;t as expected. For example, if you query a hash with a key that it doesn&rsquo;t contain, the return value is <code>nil</code>:</p>
+<div class=mycode>
+h1={:a=>5,:b=>6}<br/>
+<span style='color: blue'>{:a=>5,&nbsp;:b=>6}</span><br/>
+h1[:c]<br/>
+<span style='color: blue'>nil</span>
+</div></li>
+<li><p><strong>Automatic array re-sizing</strong>: You can assign values to any position in an array at any point; it doesn&rsquo;t matter how many items are in the array already. If you assign to a position that is past the current end of the array, the intermediate </p>
+<div class=mycode>
+arr1&nbsp;=&nbsp;[1,'a',6,'cde']<br/>
+arr1[10]&nbsp;=&nbsp;5<br/>
+puts&nbsp;arr1<br/>
+<span style='color: blue'>[1,'a',6,'cde',nil,nil,nil,nil,nil,nil,5]</span>
+</div></li>
+</ul>

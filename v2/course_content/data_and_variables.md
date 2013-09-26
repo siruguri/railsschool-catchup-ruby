@@ -11,14 +11,16 @@ The simplest data types in Ruby are:
 *   Integers: Anything written as a number is assumed to be one, and you can perform most simple operations on them, for example, add, multiple, take the square of, and so on
 
         a=3
-        b=a*2 # The value of the variable b will be 6
+        b=a*2
+        puts b
+        ==> 6
 
 *   Text: Text is usually represented by enclosing it in double- or single-quotes. In Ruby, you can concatenate string together using the `+` symbol.
 
         first_name="Bill"
         last_name='Clinton'
         full_name=first_name + last_name
-        # The value of the variable full_name will be "BillClinton"
+        ==> BillClinton
 
 In these examples, you can see how variable values are substituted and
 assigned. The variable that is assigned to is on the left side of the
@@ -46,8 +48,11 @@ There are two types of collections that are used in most languages:
 * Arrays: In Ruby, arrays are initialized using the `[ ]` symbol, like so:
 
         names = ['Hillary', 'Bill', 'Clinton']
-        president1 = names[1] + names[2] # president1 will be 'BillClinton'
-        president2 = names[0] + names[2] # president2 will be 'HillaryClinton'
+        president1 = names[1] + names[2]
+        president2 = names[0] + names[2]
+	puts president1, president2
+        ==> BillClinton
+        ==> HillaryClinton
 
 * Hashes: Hashes are collections of _key/value pairs_. Each element in the hash is indexed by its key. In Ruby, hashes are initialized using the `{ }` symbol, like so:
 
@@ -60,4 +65,18 @@ There are two types of collections that are used in most languages:
 Note how the initialization uses different symbols, but both `Hash`es
 and `Array`s use the `[ ]` symbols to assign individual values.
 
+# Advanced Topics
 
+* **`NIL`**: There is another simple data type in Ruby which is called `nil`. It represents nothing, but that doesn't mean it is the same as an empty string or the number 0. It is typically used to denote that the behavior of something isn't as expected. For example, if you query a hash with a key that it doesn't contain, the return value is `nil`:
+
+        h1={:a=>5,:b=>6}
+        ==> {:a=>5, :b=>6}
+        h1[:c]
+        ==> nil
+
+* **Automatic array re-sizing**: You can assign values to any position in an array at any point; it doesn't matter how many items are in the array already. If you assign to a position that is past the current end of the array, the intermediate 
+
+        arr1 = [1,'a',6,'cde']
+        arr1[10] = 5
+        puts arr1
+        ==> [1,'a',6,'cde',nil,nil,nil,nil,nil,nil,5]
