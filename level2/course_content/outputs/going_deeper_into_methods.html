@@ -1,0 +1,64 @@
+<ul>
+<li>
+<a href="#toc_0">Method Essentials</a>
+</li>
+<li>
+<a href="#toc_1">Understanding Scope</a>
+<ul>
+<li>
+<a href="#toc_2">Something&#39;s Bound To Happen</a>
+</li>
+</ul>
+</li>
+</ul>
+<p><link href="markdown.css" rel="stylesheet"></link></p>
+
+<h1 id="toc_0">Method Essentials</h1>
+
+<p>In our basic lesson on <a href="../../../v2/course_content/outputs/control_and_functions.html">control and functions</a>, we learned that a function or method needs zero or more argument and has a single return value.</p>
+
+<p>More strictly speaking, if we look at how methods work in other languages, they actually require something slightly different:</p>
+
+<ul>
+<li>A scope</li>
+<li>A <em>call stack</em></li>
+</ul>
+
+<p>The input arguments and the return value are both optional, in general; this is true in Ruby as well, though strictly speaking, Ruby methods always return a value even when you don&rsquo;t use the <code>return</code> keyword, because the return value of a function is the value of the last evaluated expression.</p>
+
+<h1 id="toc_1">Understanding Scope</h1>
+
+<p>Let&rsquo;s start by understanding what the <code>scope</code> of a method is. At all times in your application, Ruby has to keep track of the values of all the variables and symbols you have used. For example, in this code snippet:</p>
+<div class=mycode>
+def&nbsp;say_hello(name)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;puts&nbsp;"hello&nbsp;#{name}"<br/>
+end<br/>
+name='megan'<br/>
+say_hello("joe")<br/>
+<span style='color: blue'>'hello&nbsp;joe'&nbsp;</span>
+</div>
+
+<p>How does Ruby keep track that <code>say_hello</code> is a method? Why does the output not say <code>hello megan</code> instead?</p>
+
+<p>Ruby (like all programming languages) does book-keeping along the way, with some rules that are specific to it relative to other languages, that help it record what the value or meaning of each symbol is. This ongoing record is called the <strong>scope</strong> or the <em>binding</em> of the application.</p>
+
+<p>Note that the application&rsquo;s binding changes as it executes each statement. The name of a specific variable is not included in the binding until that variable is first defined. Similarly, a function has to be defined before it can be used.</p>
+
+<h2 id="toc_2">Something&rsquo;s Bound To Happen</h2>
+
+<p>Ruby lets you inspect the binding while the program is running, through a variety of methods that&rsquo;re part of the <a href="http://www.ruby-doc.org/core-2.0.0/">Ruby core library</a>. We&rsquo;ll start by listing the local variables that are known to Ruby:</p>
+<div class=mycode>
+def&nbsp;say_hello(name)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;puts&nbsp;"Inside&nbsp;the&nbsp;function,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;puts&nbsp;"hello&nbsp;#{name}"<br/>
+end<br/>
+name='megan'<br/>
+address='123&nbsp;Main&nbsp;St.'<br/>
+puts&nbsp;"Outside&nbsp;the&nbsp;function,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
+say_hello<br/>
+<span style='color: blue'>Outside&nbsp;the&nbsp;function,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name,&nbsp;:address]</span><br/>
+<span style='color: blue'>Inside&nbsp;the&nbsp;function&nbsp;now,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name]</span><br/>
+<span style='color: blue'>hello&nbsp;joe</span>
+</div>
+
+<p>This shows </p>

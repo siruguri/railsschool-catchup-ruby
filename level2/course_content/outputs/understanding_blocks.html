@@ -1,0 +1,18 @@
+<ul>
+<li>
+<a href="#toc_0">A Russian Doll Setup</a>
+</li>
+</ul>
+<p><link href="markdown.css" rel="stylesheet"></link></p>
+
+<h1 id="toc_0">A Russian Doll Setup</h1>
+
+<p>Now that we understand scope and binding, blocks become a bit easier to understand.</p>
+
+<p>The scope of a block is created by combining its scope along with the scope <em>in which it is defined</em>:</p>
+
+<p>sum=0
+   mesg=&ldquo;Not in block&rdquo;
+   list=[1,2,3]
+   list.each { |item| mesg=&ldquo;In block&rdquo;; puts mesg; sum += item }
+   puts sum</p>
