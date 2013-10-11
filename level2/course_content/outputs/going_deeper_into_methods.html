@@ -6,9 +6,15 @@
 <a href="#toc_1">Understanding Scope</a>
 <ul>
 <li>
-<a href="#toc_2">Something&#39;s Bound To Happen</a>
+<a href="#toc_2">Knowing What&#39;s In Scope</a>
 </li>
 </ul>
+</li>
+<li>
+<a href="#toc_3">Something&#39;s Bound To Happen</a>
+</li>
+<li>
+<a href="#toc_4">Advanced Topics</a>
 </li>
 </ul>
 <p><link href="markdown.css" rel="stylesheet"></link></p>
@@ -38,27 +44,56 @@ say_hello("joe")<br/>
 <span style='color: blue'>'hello&nbsp;joe'&nbsp;</span>
 </div>
 
-<p>How does Ruby keep track that <code>say_hello</code> is a method? Why does the output not say <code>hello megan</code> instead?</p>
+<p>How does Ruby keep track that <code>say_hello</code> is a method? Why does the method <code>say_hello</code> not use the value assigned to <code>name</code> outside it, and print <code>hello megan</code> instead?</p>
 
-<p>Ruby (like all programming languages) does book-keeping along the way, with some rules that are specific to it relative to other languages, that help it record what the value or meaning of each symbol is. This ongoing record is called the <strong>scope</strong> or the <em>binding</em> of the application.</p>
+<p>Ruby (like all programming languages) does book-keeping along the way, with some rules that are specific to it, that help it record what the value or meaning of each symbol is. This ongoing record is called the <strong>scope</strong>.</p>
 
-<p>Note that the application&rsquo;s binding changes as it executes each statement. The name of a specific variable is not included in the binding until that variable is first defined. Similarly, a function has to be defined before it can be used.</p>
+<p>Note that there is a difference in Ruby  between &ldquo;being in scope&rdquo; and &ldquo;being defined in the scope&rdquo;: the scope of a program will contain all variables names that are going to be defined but they won&rsquo;t actually be marked as defined until they are first encountered.</p>
 
-<h2 id="toc_2">Something&rsquo;s Bound To Happen</h2>
+<p>In the snippet above, Ruby will keep the scope inside the method distinct from the scope outside it, which is why you can have the same variable in two places without getting their values confused.</p>
 
-<p>Ruby lets you inspect the binding while the program is running, through a variety of methods that&rsquo;re part of the <a href="http://www.ruby-doc.org/core-2.0.0/">Ruby core library</a>. We&rsquo;ll start by listing the local variables that are known to Ruby:</p>
+<h2 id="toc_2">Knowing What&rsquo;s In Scope</h2>
+
+<p>Ruby lets you inspect the current scope while the program is running, through a variety of methods that&rsquo;re part of the <a href="http://www.ruby-doc.org/core-2.0.0/">Ruby core library</a>. We&rsquo;ll start with a method that lists the local variables that are known to Ruby:</p>
 <div class=mycode>
 def&nbsp;say_hello(name)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;puts&nbsp;"Inside&nbsp;the&nbsp;function,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;puts&nbsp;"Inside&nbsp;the&nbsp;method,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;puts&nbsp;"hello&nbsp;#{name}"<br/>
+assigned_later=1<br/>
 end<br/>
 name='megan'<br/>
 address='123&nbsp;Main&nbsp;St.'<br/>
-puts&nbsp;"Outside&nbsp;the&nbsp;function,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
+puts&nbsp;"Outside&nbsp;the&nbsp;method,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
 say_hello<br/>
-<span style='color: blue'>Outside&nbsp;the&nbsp;function,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name,&nbsp;:address]</span><br/>
-<span style='color: blue'>Inside&nbsp;the&nbsp;function&nbsp;now,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name]</span><br/>
+puts&nbsp;"Outside&nbsp;the&nbsp;method,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#{local_variables}"<br/>
+<span style='color: blue'>Outside&nbsp;the&nbsp;method,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name,&nbsp;:address]</span><br/>
+<span style='color: blue'>Inside&nbsp;the&nbsp;method&nbsp;now,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name,&nbsp;:assigned_later]</span><br/>
+<span style='color: blue'>Outside&nbsp;the&nbsp;method,&nbsp;the&nbsp;variables&nbsp;are&nbsp;[:name,&nbsp;:address]</span><br/>
 <span style='color: blue'>hello&nbsp;joe</span>
 </div>
 
-<p>This shows </p>
+<p>This shows how Ruby changes the scope when it is executing inside the method - <code>:address</code> is no longer listed as a local variable while control is inside the method, but will be listed again when you return to the scope outside the method.</p>
+
+<h1 id="toc_3">Something&rsquo;s Bound To Happen</h1>
+
+<p>The specific values that are assigned to the variables when they are
+defined, within a given scope, constitute a <em>binding</em>. Intuitively
+enough, to know what the value of a given variable is, you have to use the <code>binding</code> method.</p>
+
+<p>The method cannot output the value by itself - in order to do so, you have to tell Ruby to actually perform an expression evaluation, using that binding:</p>
+<div class=mycode>
+a=1<br/>
+puts&nbsp;"The&nbsp;local&nbsp;variables&nbsp;are:&nbsp;#{local_variables}"<br/>
+value_a&nbsp;=&nbsp;binding.eval("a")<br/>
+puts&nbsp;"The&nbsp;value&nbsp;of&nbsp;a&nbsp;is&nbsp;#{value_a}"<br/>
+<span style='color: blue'>The&nbsp;local&nbsp;variables&nbsp;are:&nbsp;[:_,&nbsp;:a]</span><br/>
+<span style='color: blue'>The&nbsp;value&nbsp;of&nbsp;a&nbsp;is&nbsp;1</span>
+</div>
+
+<p>This is a somewhat roundabout way of obtaining the value of a variable - after all, you could have just printed it out like so - <code>puts &amp;ldquo;#{a}&amp;rdquo;</code> - so this is just to illustrate how binding works. To get a better sense of why it&rsquo;s helpful, let&rsquo;s look at the code in snippets <strong>1</strong>, <strong>2</strong>, and <strong>3</strong>.</p>
+
+<h1 id="toc_4">Advanced Topics</h1>
+
+<ul>
+<li>We saw how to list local variables - how about functions? (Read about <a href="http://www.railstips.org/blog/archives/2009/05/11/class-and-instance-methods-in-ruby/">methods, instance<em>methods, and class</em>methods</a>)</li>
+</ul>

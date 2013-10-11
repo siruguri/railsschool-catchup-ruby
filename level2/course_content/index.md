@@ -1,6 +1,6 @@
 # Ruby Intermediate: Scope and Procedures
 
-There are 2 courses so far. The attached code in [the repo that this material is stored on](https://github.com/siruguri/railsschool-catchup-rails), under the `level2` folder, is related to this material and is referred to in various parts of this tutorial.
+There are 2 courses so far. The attached code in [the repo that this material is stored on](https://github.com/siruguri/railsschool-catchup-ruby), under the `level2` folder, is related to this material and is referred to in various parts of this tutorial.
 
 * [Going Deeper Into Methods](going_deeper_into_methods.html)
 * [Understanding Blocks](understanding_blocks.html)
