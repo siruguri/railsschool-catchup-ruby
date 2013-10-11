@@ -159,3 +159,7 @@ with a `nil` return value to signify that the file didn't exists so
 there's nothing (`nil`) to read. If the file does exist, it opens and
 then reads from it. Note that the value of the function will be an
 array of all the lines, which is the final statement in the function.
+
+# Advanced Topics
+
+* Read about [optional arguments for methods](http://www.ruby-doc.org/docs/ProgrammingRuby/html/tut_methods.html), and how you'd combine them with a method that takes a block as an argument.
