@@ -10,6 +10,8 @@ doesn't float around on its own, it's instead always "owned" by a
 specific piece of data, and it operates on the piece of data it's
 attached to, or owned by.
 
+Remember we said that methods take arguments or inputs. In OO, all methods receive at least one argument, which is the object that the method is attached to. You can supply more arguments using the usual notation as well, but either way, the object is available to the method.
+
 ## You've Got A Type
 
 The other main idea in OO is that any piece of data has a type, which
@@ -70,7 +72,7 @@ There are some questions which come to mind immediately, that you should think a
 
 In the code attached to this lesson, we look at how to define a class
 of our own, and create objects that belong to this class. Look at code
-snippet **#4**.
+snippet **4**.
 
 ## Core Classes
 
@@ -86,7 +88,7 @@ lesson: `Array`s and `Hash`es:
     # Run this in irb to see the output.
 
 What just happened there? Ruby offers a number of "out-of-the-box"
-functions that help you investigate OO concepts.
+methods that help you investigate OO concepts. [As we described before](#toc_1), in OO programming, methods are attached to objects, so these methods are called on each array object you're analyzing:
 
 * `.class`: To any object, append `.class` and you'll get its class name.
 
@@ -98,20 +100,28 @@ functions that help you investigate OO concepts.
         puts "The ancestors of the String class are #{String.ancestors}"
         # Output -> [String, Comparable, Object, Kernel, BasicObject]
 
-Arrays and hashes are classes, that come pre-defined for you. But they
+`Array`s and `Hash`es are classes, that come pre-defined for you. But they
 behave the same as any other class, even one that you might create on
-your own. They have a "class name" and you can create new Arrays and
-Hashes the same way you'd create a new object of a user-defined class.
+your own. They have a "class name" and you can create new `Array`s and `Hash`es the same way you'd create a new object of a user-defined class.
 
 This means that an array is an object of the class `Array` and like
 all other classes, will have properties defined for it, just as we
-defined properties for our class `Business` in code snippet **#4**.
+defined properties for our class `Business` in code snippet **4**:
+
+    arr1=[2,4,"alice","john", -6]
+    # All arrays have a length property
+    arr1.count # Or you can say arr1.size, it's a synonym
+    ==> 5
 
 Most importantly, you can expect that the `new` method will always be
 available for any class, allowing you to create a new object instance
 of the given type:
 
-        # These two lines of code do the same thing
-        arr1=[1,2]
-        arr2=Array.new; arr2[0]=1; arr2[1]=2
+    # These two lines of code do the same thing
+    arr1=[1,2]
+    arr2=Array.new; arr2[0]=1; arr2[1]=2
 
+# Advanced Topics
+
+* Discovering all the properties of a class: You can read the documentation for a class to learn all of its properties and methods, or for a quick list of names, you can use the instance_methods method available to all object instances in Ruby. This list might be a bit unwieldy for most classes, because it includes not just the methods of the class but of all of its ancestor classes too - to understand how to separate the two, you'll have to read up a bit on [the Ruby class hierarchy and method inheritance](http://rubylearning.com/satishtalim/ruby_inheritance.html). 
+* In Ruby, **all** methods are attached to some class - just as all classes have methods, so do all methods have a class. So what class are the methods that you define "by themselves" in your application attached to? The answer is these "top-level" methods are created as [private methods of the Object class](http://stackoverflow.com/questions/1761148/where-are-methods-defined-at-the-ruby-top-level). 

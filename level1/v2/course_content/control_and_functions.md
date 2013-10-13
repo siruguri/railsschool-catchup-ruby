@@ -133,7 +133,7 @@ In most programming languages, when you call a method, you have to use the paren
 
 There _is_ a difference between the two formats - it has to do with the precedence of evaluation:
 
-    def multipley(a,b)
+    def multiply(a,b)
         return a*b
     end
  
