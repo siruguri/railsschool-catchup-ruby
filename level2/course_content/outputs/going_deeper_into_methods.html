@@ -41,7 +41,9 @@ def&nbsp;say_hello(name)<br/>
 end<br/>
 name='megan'<br/>
 say_hello("joe")<br/>
-<span style='color: blue'>'hello&nbsp;joe'&nbsp;</span>
+puts&nbsp;"hello&nbsp;#{name}"<br/>
+<span style='color: blue'>'hello&nbsp;joe'&nbsp;</span><br/>
+<span style='color: blue'>'hello&nbsp;megan'</span>
 </div>
 
 <p>How does Ruby keep track that <code>say_hello</code> is a method? Why does the method <code>say_hello</code> not use the value assigned to <code>name</code> outside it, and print <code>hello megan</code> instead?</p>
@@ -77,20 +79,22 @@ puts&nbsp;"Outside&nbsp;the&nbsp;method,&nbsp;the&nbsp;variables&nbsp;are&nbsp;#
 <h1 id="toc_3">Something&rsquo;s Bound To Happen</h1>
 
 <p>The specific values that are assigned to the variables when they are
-defined, within a given scope, constitute a <em>binding</em>. Intuitively
-enough, to know what the value of a given variable is, you have to use the <code>binding</code> method.</p>
+defined, within a given scope, constitute a <em>binding</em>, because
+variables that have been defined are said to have been &ldquo;bound&rdquo; to a
+value. Intuitively enough, to know what value a given variable is bound to, you have to use the <code>binding</code> method.</p>
 
 <p>The method cannot output the value by itself - in order to do so, you have to tell Ruby to actually perform an expression evaluation, using that binding:</p>
 <div class=mycode>
-a=1<br/>
 puts&nbsp;"The&nbsp;local&nbsp;variables&nbsp;are:&nbsp;#{local_variables}"<br/>
+puts&nbsp;"Is&nbsp;the&nbsp;variable&nbsp;a&nbsp;already&nbsp;bound&nbsp;to&nbsp;a&nbsp;value?&nbsp;Ans:&nbsp;#{defined?&nbsp;:a}"<br/>
+a=1<br/>
 value_a&nbsp;=&nbsp;binding.eval("a")<br/>
 puts&nbsp;"The&nbsp;value&nbsp;of&nbsp;a&nbsp;is&nbsp;#{value_a}"<br/>
 <span style='color: blue'>The&nbsp;local&nbsp;variables&nbsp;are:&nbsp;[:_,&nbsp;:a]</span><br/>
 <span style='color: blue'>The&nbsp;value&nbsp;of&nbsp;a&nbsp;is&nbsp;1</span>
 </div>
 
-<p>This is a somewhat roundabout way of obtaining the value of a variable - after all, you could have just printed it out like so - <code>puts &amp;ldquo;#{a}&amp;rdquo;</code> - so this is just to illustrate how binding works. To get a better sense of why it&rsquo;s helpful, let&rsquo;s look at the code in snippets <strong>1</strong>, <strong>2</strong>, and <strong>3</strong>.</p>
+<p>This is a somewhat roundabout way of obtaining the value of a variable - after all, you could have just printed it out like so - <code>puts &amp;ldquo;#{a}&amp;rdquo;</code> - so this snippet is just to illustrate how binding works, and it&rsquo;s not the best solution to the problem of obtaining the value of a known variable. To get a better sense of why it&rsquo;s helpful, let&rsquo;s look at the code in snippets <strong>1</strong>, <strong>2</strong>, and <strong>3</strong>.</p>
 
 <h1 id="toc_4">Advanced Topics</h1>
 

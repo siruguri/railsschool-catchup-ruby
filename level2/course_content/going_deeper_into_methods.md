@@ -61,11 +61,11 @@ value. Intuitively enough, to know what value a given variable is bound to, you 
 The method cannot output the value by itself - in order to do so, you have to tell Ruby to actually perform an expression evaluation, using that binding:
 
     puts "The local variables are: #{local_variables}"
-    puts "Is the variable a already bound to a value? Ans: #{defined? :a}"
+    puts "Is the variable 'a' not yet bound? Ans: #{(defined? a).nil?}"
     a=1
     value_a = binding.eval("a")
     puts "The value of a is #{value_a}"
-    ==> The local variables are: [:_, :a]
+    ==> The local variables are: [:a]
     ==> The value of a is 1
 
 This is a somewhat roundabout way of obtaining the value of a variable - after all, you could have just printed it out like so - `puts "#{a}"` - so this snippet is just to illustrate how binding works, and it's not the best solution to the problem of obtaining the value of a known variable. To get a better sense of why it's helpful, let's look at the code in snippets **1**, **2**, and **3**.

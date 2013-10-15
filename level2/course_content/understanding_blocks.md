@@ -48,3 +48,19 @@ The block is passed in as an implicit parameter but you can make it explicit. Wh
 
 See code snippet **6** for an example, that uses recursion. This example uses a Ruby gem called `nokogiri` to traverse the _DOM_ of an HTML file. If you don't know what DOMs are, it suffices to understand that it's a way of breaking down an HTML file into [a network of nodes that are connected to each other through a parent-child relationship](http://eloquentjavascript.net/chapter12.html).
 
+## Some Experiments With Binding
+
+Now that we know how to call a block in our own code, we can understand the way blocks pass scope around, in a bit more detail:
+
+    def inner_scope
+       yield 
+    end
+    def outer_scope(&block)
+       var = -1
+       inner_scope { block.call }
+    end
+
+    var = 1
+    outer_scope { puts var }
+
+Note that the block called inside `outer_scope` retains the value of `var` (1) that was assigned in the "main" scope.
