@@ -1,6 +1,6 @@
 # Scopes Inside Scopes
 
-Now that we understand scope and binding, blocks become a bit easier to understand.
+Now that we understand scope and binding, blocks become a bit easier to understand and inspect.
 
 The scope of a block is created by combining its scope along with the scope _in which it is defined_:
 
@@ -13,11 +13,11 @@ Unlike a method call, where the local variables of the caller's scope are unavai
 
 # Method II: The Return of the Method
 
-Let's use blocks to understand the second essential aspect of a method - its _call stack_. The call stack tells Ruby what to do once the method has completed execution - it contains a pointer to the place in your code where execution should then resume.
+Let's use blocks to understand the second essential aspect of a method - its _call stack_. The call stack tells Ruby what to do once the method has completed evaluating all the statements in it - it contains a pointer to the place in your code where execution should then resume.
 
    [1,2].each { |x| puts caller }
 
-The call stack at the point our block runs contains two items - `each` and `main`. Execution will flow backwards through this stack - when the block completes, its return value is available to the code in `Array.each`, and when that method completes, its return value is available to the code in `<main>`, which is the Ruby representation of the application's "top-level" scope.
+The call stack at the point our block runs contains two items - `each` and `main`. In the normal case, execution will flow backwards through this stack - when the block completes, its return value is available to the code in `Array.each`, and when that method completes, its return value is available to the code in `<main>`, which is the Ruby representation of the application's "top-level" scope.
 
 ## Where Blocks are Called
 
@@ -42,6 +42,7 @@ We can now use this function on a "matrix", that is, an array of arrays, like so
 
     matrix = [ [1,1], [2,4], [3, 9], [4, 16] ]
     new_matrix = each_cell(matrix) { |val, rn, cn| 2*val }
+    # Or we can splat multiple arguments into one variable
 
 The block is passed in as an implicit parameter but you can make it explicit. When you do so, it has to be the last argument passed to your method. 
 

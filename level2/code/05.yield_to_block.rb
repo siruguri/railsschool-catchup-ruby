@@ -15,4 +15,5 @@ end
 
 matrix = [ [1,1], [2,4], [3, 9], [4, 16] ]
 new_matrix = each_cell(matrix) { |val, rn, cn| puts "returning #{2*val}"; 2*val }
+# Or we can splat it
 puts new_matrix

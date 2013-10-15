@@ -18,7 +18,9 @@ Let's start by understanding what the `scope` of a method is. At all times in yo
     end
     name='megan'
     say_hello("joe")
+    puts "hello #{name}"
     ==> 'hello joe' 
+    ==> 'hello megan'
 
 How does Ruby keep track that `say_hello` is a method? Why does the method `say_hello` not use the value assigned to `name` outside it, and print `hello megan` instead?
 
@@ -52,19 +54,21 @@ This shows how Ruby changes the scope when it is executing inside the method - `
 # Something's Bound To Happen
 
 The specific values that are assigned to the variables when they are
-defined, within a given scope, constitute a _binding_. Intuitively
-enough, to know what the value of a given variable is, you have to use the `binding` method.
+defined, within a given scope, constitute a _binding_, because
+variables that have been defined are said to have been "bound" to a
+value. Intuitively enough, to know what value a given variable is bound to, you have to use the `binding` method.
 
 The method cannot output the value by itself - in order to do so, you have to tell Ruby to actually perform an expression evaluation, using that binding:
 
-    a=1
     puts "The local variables are: #{local_variables}"
+    puts "Is the variable a already bound to a value? Ans: #{defined? :a}"
+    a=1
     value_a = binding.eval("a")
     puts "The value of a is #{value_a}"
     ==> The local variables are: [:_, :a]
     ==> The value of a is 1
 
-This is a somewhat roundabout way of obtaining the value of a variable - after all, you could have just printed it out like so - `puts "#{a}"` - so this is just to illustrate how binding works. To get a better sense of why it's helpful, let's look at the code in snippets **1**, **2**, and **3**.
+This is a somewhat roundabout way of obtaining the value of a variable - after all, you could have just printed it out like so - `puts "#{a}"` - so this snippet is just to illustrate how binding works, and it's not the best solution to the problem of obtaining the value of a known variable. To get a better sense of why it's helpful, let's look at the code in snippets **1**, **2**, and **3**.
 
 # Advanced Topics
 

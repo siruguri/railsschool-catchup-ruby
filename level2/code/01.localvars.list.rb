@@ -1,17 +1,13 @@
 def say_hello(name)
   puts "Inside the method now, the variables are #{local_variables}"
 
-  puts "The status of the symbol 'assigned_later' is"
-  if defined?(assigned_later).nil?
-    puts '>>> not defined'
-  else
-    puts '>>> defined'
-  end
+  puts "Variable assigned_later unbound? Ans: #{defined?(assigned_later).nil?}"
+  puts "Binding assigned_later now...";  assigned_later=1
+  puts "Variable assigned_later unbound? Ans: #{defined?(assigned_later).nil?}"
 
   # But how do I know their values? (02)
   
   puts "hello #{name}"
-  assigned_later=1
 end
 
 name='megan'
