@@ -123,5 +123,6 @@ of the given type:
 
 # Advanced Topics
 
+* Something to think about: Why are objects initialized by calling the `new` method, even though the corresponding method definition in the Class itself is called `initialize`?
 * Discovering all the properties of a class: You can read the documentation for a class to learn all of its properties and methods, or for a quick list of names, you can use the instance_methods method available to all object instances in Ruby. This list might be a bit unwieldy for most classes, because it includes not just the methods of the class but of all of its ancestor classes too - to understand how to separate the two, you'll have to read up a bit on [the Ruby class hierarchy and method inheritance](http://rubylearning.com/satishtalim/ruby_inheritance.html). 
 * In Ruby, **all** methods are attached to some class - just as all classes have methods, so do all methods have a class. So what class are the methods that you define "by themselves" in your application attached to? The answer is these "top-level" methods are created as [private methods of the Object class](http://stackoverflow.com/questions/1761148/where-are-methods-defined-at-the-ruby-top-level). 

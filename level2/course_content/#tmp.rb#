@@ -1,0 +1,17 @@
+
+code=<<EOF
+define_method :second do
+return self[1]
+end
+EOF
+
+# this is the same 
+Array.instance_eval(code)
+# as 
+#class Array
+#  def second...
+
+
+puts [41,42].second
+
+

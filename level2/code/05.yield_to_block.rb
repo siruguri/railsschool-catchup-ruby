@@ -1,9 +1,9 @@
-def each_cell(matrix)
+def each_cell(matrix, &blk1)
   ret_matrix=[]
   matrix.each_with_index do |row, row_num|
     out_row = []
     row.each_with_index do |cell_val, col_num|
-      out_row << yield(cell_val, row_num, col_num)
+      out_row << blk1.call(cell_val, row_num, col_num)
     end
     ret_matrix << out_row
   end

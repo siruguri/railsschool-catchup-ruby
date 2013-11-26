@@ -26,19 +26,32 @@ def traverse_dom(dom, level, &block)
   node_list.flatten
 end
 
+# node_list is an array
 node_list = traverse_dom(dom, 0) do |node|
   {name: "#{node.name}"}
 end
-
-class Array 
-  def strong
-    x=self.select do |item|
-      item[:name] == 'strong'
-    end
-  end
-end
-
 puts node_list
 puts "---"
+
+node_list.each do |h|
+  method_name = h[:name]
+  code=<<EOF
+define_method method_name do
+    x=self.select do |item|
+      item[:name] == h[:name]
+    end
+  end
+EOF
+
+  Array.instance_eval code
+end
+
+# This should print out all nodes in the dom that have the name 'strong'
+puts "All strong nodes"
 puts node_list.strong
+
+# This should print out all nodes in the dom that have the name 'div'
+puts "All div nodes"
+puts node_list.div
+
 
