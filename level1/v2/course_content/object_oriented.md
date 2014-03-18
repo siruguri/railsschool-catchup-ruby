@@ -3,16 +3,18 @@
 The idea of object-oriented (or "OO") programming is to focus on data
 - that's what the "object" in OO refers to.
 
-## Methods In OO
+There are two key ideas that you have to wrap your head around - that methods are attached to data, rather than data being "fed" to methods, and that all pieces of data must belong to a category, aka _type_, aka _class_.
+
+## Attached Methods in OO
 
 In OO, methods are "attached" to objects. The idea is that a function
 doesn't float around on its own, it's instead always "owned" by a
 specific piece of data, and it operates on the piece of data it's
 attached to, or owned by.
 
-Remember we said that methods take arguments or inputs. In OO, all methods receive at least one argument, which is the object that the method is attached to. You can supply more arguments using the usual notation as well, but either way, the object is available to the method.
+Remember we said that methods take arguments or inputs. In OO, all methods receive at least one argument, which is the object that the method is attached to. This argument is available to every method as the variable `self`. You can supply more arguments using the usual notation as well, but either way, the object is available to the method.
 
-## You've Got A Type
+## Determining Type
 
 The other main idea in OO is that any piece of data has a type, which
 in OO programming is usually called the _class_ of that piece of
@@ -24,12 +26,27 @@ said to _belong_ to the class that is its type.
 
 Each class has a set of properties that is unique to itself. For
 example, all numbers have the property that they have a sign, negative
-or positive.
+or positive, and they have a magnitude - referred to in mathematical terms as the _absolute value_. All strings have a property of "length" or "size" - how many characters the string has.
 
-OO languages allow programmers to write their own types. You might
-write a type called Animal, for example. All animals might have a
-property called `number_of_legs`, say. Or a type called Person, and
-all persons (people) will have a property called `name`.
+In Ruby, the built-in classes come with some built-in methods that let you access these properties:
+
+    word="bird"
+    puts word.size
+    ==> 4
+
+    i=-5
+    puts i.abs
+    ==> 5
+
+We discuss the behavior of core classes in greater detail in the section on **Core Classes** below.
+
+## Building Your Own Types
+
+The strength of OO languages is that you, the programmer, can write
+your own types. You might write a type called Animal, for example. All
+animals might have a property called `number_of_legs`, say. Or a type
+called Person, and all persons (people) will have a property called
+`name`.
 
 It's important to distinguish between the properties of a class, and
 the _values_ of each property that a specific object has. All objects
@@ -53,7 +70,7 @@ stem from understanding the various ways in which inheritance works.
 
 If a type **T** _inherits_ from another type **S**, it means that data
 (an object) of type **T** will have all the properties that an object
-of type **S** does, plus possibly more. The type **Dog** nherits from
+of type **S** does, plus possibly more. The type **Dog** inherits from
 the type **Animal** - this means that all Dogs are Animals, but all
 Animals are not Dogs. Dogs will have [properties that are common to
 all Animals](https://en.wikipedia.org/wiki/Animal#Characteristics),

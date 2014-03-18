@@ -17,4 +17,6 @@ Code is shown in black background. Comments are in red font, and outputs are in 
     puts 9*8
     ==> The value of 9*8 is 72
 
+The code used in this class is [available on Github](.
+
 Have fun!

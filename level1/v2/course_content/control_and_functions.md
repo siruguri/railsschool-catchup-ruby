@@ -8,7 +8,7 @@ variables do) and will have one or more of the following:
 * Zero or more arguments (function inputs are called "arguments," just as how your Ruby program's inputs are called command-line arguments). For example, you might have a `multiply` function which multiplies two numbers - those will be the "arguments" of the function.
 * A single return value: This is the output of the function. In the case of our `multiply` function above, if the arguments were **7** and **8**, then the _return value_ would be **56**.
 
-In Ruby, functions are called _methods_. Note that in Ruby, all methods must have a return value. We'll see shortly why that's the case.
+In Ruby, functions are called _methods_. Note that in Ruby, all methods will have a return value, even if you think you didn't explicitly return such a value. We'll see shortly why that's the case.
 
 Methods in Ruby are created or defined using the `def` keyword. Here's a method that takes one argument and prints it to screen (we'll worry in a bit about what its return value is.)
 
@@ -23,6 +23,20 @@ To run the function, you use its name (`say_hello`, in this case) and supply an 
 
     say_hello("Mary")
     ==> Hello, Mary
+
+Here's another method that takes one argument and decides, in a primitive and English-centered way, bwhether it's a greeting:
+
+    def is_greeting?(word)
+      if word == 'hi' || word == 'hello' 
+         return true
+      else
+         return false
+      end
+    end
+    puts "Hi is a greeting ... #{is_greeting?('hi')}"
+    puts "Bye is a greeting ... #{is_greeting?('bye')}"
+    ==> Hi is a greeting ... true
+    ==> Bye is a greeting ... false
 
 # Gems, Beautiful Gems
 
@@ -45,17 +59,19 @@ understand how to use gems.
 
 To use a gem, you have to typically do two things:
 
-* Install it: This is done using the `gem` command at your shell/command prompt. If you successfully installed Ruby with RVM or RailsInstaller, then `gem` should be available as an executable.
+* Install it: This is done using the `gem` command at your
+  shell/command prompt. If you successfully installed Ruby with RVM or
+  RailsInstaller, then `gem` should be available as an executable.
 
-    gem install sqlite3
-    # This will install sqlite3, a gem that allows you to create SQLite3 databases.
+        gem install sqlite3
+        # This will install sqlite3, a gem that allows you to create SQLite3 databases.
 
 * Use it: To use an installed gem, you need the Ruby keyword `require`. Core modules can be `require`d without having to install them. Here's one example -- `open-uri`:
 
-    require 'open-uri'
-    # This works without having to install any gem first.
-    page = open('http://www.google.com/search?q=hello+world')
-    # By requiring open-uri, it's now possible to fetch a webpage using the "open" function
+        require 'open-uri'
+        # This works without having to install any gem first.
+        page = open('http://www.google.com/search?q=hello+world')
+        # By requiring open-uri, it's now possible to fetch a webpage using the "open" function
 
 The core modules, and most gems, have very good documentation on the web. To see what you can do with that page you just retrieved above, check out [the open-uri documentation on Ruby-Doc.org](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/open-uri/rdoc/OpenURI.html).
 
