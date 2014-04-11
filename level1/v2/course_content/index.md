@@ -1,6 +1,6 @@
 # Ruby Courses
 
-There are 4 courses so far. The attached code in [the repo that this material is stored on](https://github.com/siruguri/railsschool-catchup-ruby) is related to this material and is referred to in various parts of this tutorial.
+There are 4 units so far. The attached code in [the repo that this material is stored on](https://github.com/siruguri/railsschool-catchup-ruby) is related to this material and is referred to in various parts of this tutorial.
 
 * [An Introduction To Programming](introduction_to_programming.html)
 * [Data And Variables](data_and_variables.html)
