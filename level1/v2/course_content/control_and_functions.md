@@ -172,9 +172,23 @@ By default, a function will run through all of the statements in it, and then re
 This function uses the built-in `File` module. Given a filename, it
 checks if the file exists and if it doesn't, returns from the function
 with a `nil` return value to signify that the file didn't exists so
-there's nothing (`nil`) to read. If the file does exist, it opens and
-then reads from it. Note that the value of the function will be an
-array of all the lines, which is the final statement in the function.
+there's nothing (`nil`) to read. 
+
+If the file *does* exist, it opens and then reads from it. Note that
+the value of the function will be an array of all the lines, which is
+the final statement in the function.
+
+# Function Chaining
+Another useful feature of Ruby, that is a commonly used aspect of the Ruby idiom, is something called *function chaining*. In function chaining, you don't store return values of functions in intermediate variables that are just temporary - instead you can simply call a chain of function one after the other.
+
+For example, in most programming languages, if you wanted to sort a list and then return the first element, you'd write code that looked like this:
+
+    sorted_list = orig_list.sort
+    first_element = sorted_list.first
+
+In Ruby, you can shorten this like so:
+
+    first_element = orig_list.sort.first
 
 # Advanced Topics
 
