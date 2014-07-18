@@ -30,12 +30,10 @@ puts array2
 # Write a similar block using select that outputs only the positive numbers
 first_list = [-9, 6, 9, 0, 4, -32, -1, 5]
 
-# second_list = first_list.select # ... start filling in from here by observing the previous usage of select
+# This should output only the positive numbers.
 
-# This should output only the positive numbers - it will generate an
-# error until you finish the above assignment.
-
-second_list = first_list.select do |i|# ... start filling in from here by observing the previous usage of select
+second_list = first_list.select do |i|
+# ... start filling in from here by observing the previous usage of select
 
 end
 
