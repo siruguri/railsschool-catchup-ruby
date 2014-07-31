@@ -7,6 +7,7 @@ The homeworks in this section also require writing code, as in the previous sect
 In these code samples, you will mainly be focusing on how to manipulate the _filesystem_ using Ruby. The two main classes you will familiarize yourself with are `File` and `Dir`. Each has a list of methods that allows for the manipulation of files and folders.
 
 The documentation for these is available online:
+
 * [`File`](http://www.ruby-doc.org/core-2.1.2/File.html)
 * [`Dir`](http://www.ruby-doc.org/core-2.1.2/Dir.html)
 
@@ -22,4 +23,6 @@ Good luck!
 
 # List of Programs
 
-1. Counting the number of lines
+1. Counting the number of lines in a file 
+1. Same as the above, but with a method
+1. Reading the contents of a directory
